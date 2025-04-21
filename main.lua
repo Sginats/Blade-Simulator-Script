@@ -1,7 +1,5 @@
--- Blade Simulator Script with Rayfield UI Library
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/SiriusSoftwareLtd/Rayfield/main/source'))()
 
--- Create Window
 local Window = Rayfield:CreateWindow({
     Name = "Blade Simulator Hub (UPD 22.5)",
     LoadingTitle = "Blade Simulator Script",
@@ -11,14 +9,12 @@ local Window = Rayfield:CreateWindow({
     KeySystem = false
 })
 
--- Variables
 local player = game.Players.LocalPlayer
 local autofarmEnabled = false
 local autoBuyEnabled = false
 local enemyFarmEnabled = false
 local rebirthEnabled = false
 
--- Autofarm Function
 local function startAutofarm()
     spawn(function()
         while autofarmEnabled do
@@ -28,7 +24,6 @@ local function startAutofarm()
     end)
 end
 
--- Auto-Buy Pets
 local function startAutoBuy()
     spawn(function()
         while autoBuyEnabled do
@@ -42,7 +37,6 @@ local function startAutoBuy()
     end)
 end
 
--- Enemy Farming
 local function farmEnemies()
     spawn(function()
         while enemyFarmEnabled do
@@ -58,7 +52,6 @@ local function farmEnemies()
     end)
 end
 
--- Auto-Rebirth
 local function autoRebirth()
     spawn(function()
         while rebirthEnabled do
@@ -70,10 +63,8 @@ local function autoRebirth()
     end)
 end
 
--- Main Tab
 local MainTab = Window:CreateTab("Main", "rewind")
 
--- Autofarm Toggle
 MainTab:CreateToggle({
     Name = "Autofarm",
     CurrentValue = false,
@@ -88,7 +79,6 @@ MainTab:CreateToggle({
     end
 })
 
--- Auto-Buy Toggle
 MainTab:CreateToggle({
     Name = "Auto-Buy Pets",
     CurrentValue = false,
@@ -103,7 +93,6 @@ MainTab:CreateToggle({
     end
 })
 
--- Enemy Farm Toggle
 MainTab:CreateToggle({
     Name = "Enemy Farm",
     CurrentValue = false,
@@ -118,7 +107,6 @@ MainTab:CreateToggle({
     end
 })
 
--- Auto-Rebirth Toggle
 MainTab:CreateToggle({
     Name = "Auto-Rebirth",
     CurrentValue = false,
@@ -133,7 +121,6 @@ MainTab:CreateToggle({
     end
 })
 
--- Speed Slider
 MainTab:CreateSlider({
     Name = "Walk Speed",
     Range = {16, 100},
@@ -146,7 +133,6 @@ MainTab:CreateSlider({
     end
 })
 
--- Teleport Dropdown
 MainTab:CreateDropdown({
     Name = "Teleport to Location",
     Options = {"Spawn", "BossArena", "HighRewardZone"},
@@ -164,7 +150,6 @@ MainTab:CreateDropdown({
     end
 })
 
--- Currency Tracker
 local currencyLabel = MainTab:CreateLabel("Gems: 0")
 spawn(function()
     while wait(1) do
@@ -174,7 +159,6 @@ spawn(function()
     end
 end)
 
--- Welcome Notification
 Rayfield:Notify({
     Title = "Blade Simulator Hub",
     Content = "Script loaded successfully! Enjoy!",
